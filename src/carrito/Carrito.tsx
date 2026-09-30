@@ -92,6 +92,10 @@ export function ProveedorCarrito({ children }: { children: ReactNode }) {
     }
   }, [items])
 
+  // Estables: el drawer depende de `cerrar` en un efecto y no debe re-ejecutarse al cambiar el carrito.
+  const abrir = useCallback(() => setAbierto(true), [])
+  const cerrar = useCallback(() => setAbierto(false), [])
+
   const avisar = useCallback((texto: string) => {
     setAviso({ texto, id: Date.now() })
     window.clearTimeout(timerAviso.current)
@@ -116,12 +120,12 @@ export function ProveedorCarrito({ children }: { children: ReactNode }) {
       aclarar: (id, texto) => despachar({ tipo: 'aclarar', id, texto }),
       vaciar: () => despachar({ tipo: 'vaciar' }),
       abierto,
-      abrir: () => setAbierto(true),
-      cerrar: () => setAbierto(false),
+      abrir,
+      cerrar,
       aviso,
       avisar,
     }
-  }, [items, abierto, aviso, avisar])
+  }, [items, abierto, aviso, avisar, abrir, cerrar])
 
   return <Contexto.Provider value={valor}>{children}</Contexto.Provider>
 }

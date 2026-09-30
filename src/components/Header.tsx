@@ -13,6 +13,7 @@ export function Header() {
           {negocio.nombre}
         </a>
         <button
+          id="boton-carrito"
           type="button"
           onClick={abrir}
           className="boton boton-claro relative px-3"

@@ -49,7 +49,7 @@ function Opciones({ nombre, leyenda, opciones, valor, error, onChange }: {
         {opciones.map((o) => (
           <label
             key={o}
-            className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md border-2 border-plancha bg-blanco px-4 font-semibold has-checked:bg-mostaza has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-plancha"
+            className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md border-2 border-plancha bg-blanco px-4 font-semibold hover:bg-mostaza/40 has-checked:bg-mostaza has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-plancha"
           >
             <input type="radio" name={nombre} value={o} checked={valor === o} onChange={() => onChange(o)} className="size-4 accent-plancha" data-campo={nombre} />
             {o}
@@ -114,7 +114,9 @@ export function DrawerPedido() {
     return () => {
       document.removeEventListener('keydown', alTeclear)
       document.body.style.overflow = overflowPrevio
-      previo?.focus()
+      // Si el botón que abrió el drawer ya no existe (la barra flotante se oculta), el foco vuelve al carrito del header.
+      const destino = previo?.isConnected && previo !== document.body ? previo : document.getElementById('boton-carrito')
+      destino?.focus()
     }
   }, [abierto, cerrar])
 
@@ -162,7 +164,7 @@ export function DrawerPedido() {
           <h2 id="drawer-titulo" className="font-slab text-titulo-sm">
             Tu pedido
           </h2>
-          <button ref={botonCerrar} type="button" onClick={cerrar} className="grid size-11 place-items-center rounded-md hover:bg-blanco" aria-label="Cerrar pedido">
+          <button ref={botonCerrar} type="button" onClick={cerrar} className="grid size-11 place-items-center rounded-md hover:bg-mostaza" aria-label="Cerrar pedido">
             <IconoCerrar />
           </button>
         </div>
@@ -203,17 +205,17 @@ export function DrawerPedido() {
                     </div>
                     <div className="mt-2 flex items-center justify-between">
                       <div className="flex items-center rounded-md border-2 border-plancha" role="group" aria-label={`Cantidad de ${producto.nombre}`}>
-                        <button type="button" onClick={() => carrito.restar(producto.id)} className="grid size-11 place-items-center hover:bg-papel" aria-label={`Quitar uno de ${producto.nombre}`}>
+                        <button type="button" onClick={() => carrito.restar(producto.id)} className="grid size-11 place-items-center hover:bg-mostaza" aria-label={`Quitar uno de ${producto.nombre}`}>
                           <IconoMenos />
                         </button>
                         <span className="min-w-8 text-center font-slab" aria-live="polite">
                           {cantidad}
                         </span>
-                        <button type="button" onClick={() => carrito.sumar(producto.id)} className="grid size-11 place-items-center hover:bg-papel" aria-label={`Agregar otro ${producto.nombre}`}>
+                        <button type="button" onClick={() => carrito.sumar(producto.id)} className="grid size-11 place-items-center hover:bg-mostaza" aria-label={`Agregar otro ${producto.nombre}`}>
                           <IconoMas />
                         </button>
                       </div>
-                      <button type="button" onClick={() => carrito.eliminar(producto.id)} className="grid size-11 place-items-center rounded-md hover:bg-papel" aria-label={`Eliminar ${producto.nombre}`}>
+                      <button type="button" onClick={() => carrito.eliminar(producto.id)} className="grid size-11 place-items-center rounded-md hover:bg-ketchup hover:text-blanco" aria-label={`Eliminar ${producto.nombre}`}>
                         <IconoTacho />
                       </button>
                     </div>

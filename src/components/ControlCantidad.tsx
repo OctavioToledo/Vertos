@@ -41,13 +41,13 @@ export function ControlCantidad({ producto }: { producto: Producto }) {
 
   return (
     <div className="inline-flex items-center rounded-lg border-2 border-plancha bg-blanco text-plancha shadow-dura" role="group" aria-label={`Cantidad de ${producto.nombre}`}>
-      <button type="button" onClick={quitar} className="grid size-11 place-items-center rounded-l-md hover:bg-papel" aria-label={`Quitar uno de ${producto.nombre}`}>
+      <button type="button" onClick={quitar} className="grid size-11 place-items-center rounded-l-md hover:bg-mostaza" aria-label={`Quitar uno de ${producto.nombre}`}>
         <IconoMenos />
       </button>
       <span className="min-w-8 text-center font-slab text-xl" aria-live="polite">
         {cantidad}
       </span>
-      <button ref={refMas} type="button" onClick={agregar} className="grid size-11 place-items-center rounded-r-md hover:bg-papel" aria-label={`Agregar otro ${producto.nombre}`}>
+      <button ref={refMas} type="button" onClick={agregar} className="grid size-11 place-items-center rounded-r-md hover:bg-mostaza" aria-label={`Agregar otro ${producto.nombre}`}>
         <IconoMas />
       </button>
     </div>

@@ -39,6 +39,14 @@
     overflow-x: hidden;
   }
 
+  /* Tailwind deja el cursor por defecto en botones: todo lo clickeable muestra la mano */
+  button:not(:disabled),
+  [role='button'],
+  label:has(> input[type='radio']),
+  summary {
+    cursor: pointer;
+  }
+
   :focus-visible {
     outline: 3px solid var(--color-plancha);
     outline-offset: 3px;
@@ -66,6 +74,12 @@
       transform 80ms ease-out,
       box-shadow 80ms ease-out,
       background-color 120ms;
+  }
+  @media (hover: hover) {
+    .boton:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 var(--color-plancha);
+    }
   }
   .boton:active {
     transform: translate(3px, 3px);
