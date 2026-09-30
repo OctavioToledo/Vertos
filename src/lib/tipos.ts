@@ -19,6 +19,7 @@ export interface Negocio {
   whatsappVisible: string
   instagram: string
   direccion: string
+  coordenadas: { lat: number; lng: number }
   zonaHoraria: string
   horarios: {
     /** 0 = domingo … 6 = sábado */

@@ -3,7 +3,8 @@ import { negocio } from '../lib/datos'
 import { textoDias } from '../lib/horario'
 import { IconoBolsa, IconoMoto, IconoPago, IconoPin, IconoReloj } from './Iconos'
 
-const direccionUrl = encodeURIComponent(negocio.direccion)
+// Coordenadas exactas: la dirección sola hace que Google ubique mal el local.
+const ubicacion = `${negocio.coordenadas.lat},${negocio.coordenadas.lng}`
 
 function Dato({ icono, titulo, children }: { icono: ReactNode; titulo: string; children: ReactNode }) {
   return (
@@ -46,7 +47,7 @@ export function ComoPedir() {
           <Dato icono={<IconoPin />} titulo="Dirección">
             <p>{negocio.direccion}</p>
             <a
-              href={`https://www.google.com/maps/dir/?api=1&destination=${direccionUrl}`}
+              href={`https://www.google.com/maps/dir/?api=1&destination=${ubicacion}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 boton boton-claro"
@@ -58,7 +59,7 @@ export function ComoPedir() {
 
         <iframe
           title={`Mapa: ${negocio.direccion}`}
-          src={`https://www.google.com/maps?q=${direccionUrl}&output=embed`}
+          src={`https://www.google.com/maps?q=${ubicacion}&z=17&output=embed`}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className="aspect-square w-full rounded-lg border-2 border-plancha shadow-dura md:aspect-auto md:h-full md:min-h-80"

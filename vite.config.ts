@@ -29,6 +29,12 @@ function seoNegocio(sitio: string): Plugin {
           addressRegion: resto[1],
           addressCountry: 'AR',
         },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: negocio.coordenadas.lat,
+          longitude: negocio.coordenadas.lng,
+        },
+        hasMap: `https://www.google.com/maps?q=${negocio.coordenadas.lat},${negocio.coordenadas.lng}`,
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',

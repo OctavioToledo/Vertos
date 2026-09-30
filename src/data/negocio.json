@@ -4,6 +4,7 @@
   "whatsappVisible": "263 464-7394",
   "instagram": "vertos.ok",
   "direccion": "Manuel de Olazábal 101, San Martín, Mendoza",
+  "coordenadas": { "lat": -33.089084, "lng": -68.459457 },
   "zonaHoraria": "America/Argentina/Mendoza",
   "horarios": {
     "dias": [3, 4, 5, 6, 0],
