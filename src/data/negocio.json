@@ -1,0 +1,16 @@
+{
+  "nombre": "Verto's",
+  "whatsapp": "5492634647394",
+  "whatsappVisible": "263 464-7394",
+  "instagram": "vertos.ok",
+  "direccion": "Manuel de Olazábal 101, San Martín, Mendoza",
+  "zonaHoraria": "America/Argentina/Mendoza",
+  "horarios": {
+    "dias": [3, 4, 5, 6, 0],
+    "apertura": "20:30",
+    "cierre": "00:30"
+  },
+  "entrega": ["Take away", "Delivery"],
+  "pagos": ["Efectivo", "Transferencia"],
+  "notaDelivery": "El costo de envío se coordina por WhatsApp según la zona."
+}

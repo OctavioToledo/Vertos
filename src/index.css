@@ -1,0 +1,170 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ketchup: #c8202f;
+  --color-ketchup-oscuro: #8e1520;
+  --color-mostaza: #f2b705;
+  --color-papel: #fffdf7;
+  --color-plancha: #1e1b18;
+  --color-blanco: #ffffff;
+
+  --font-slab: 'Alfa Slab One', Georgia, serif;
+  --font-sans: 'Barlow', system-ui, sans-serif;
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-xl: 1.25rem;
+  /* Mínimo para nombres en mostaza sobre kétchup: 3,4:1 solo pasa AA como texto grande (≥24px) */
+  --text-nombre: 1.5rem;
+  --text-titulo-sm: 1.75rem;
+  --text-titulo: 2.5rem;
+  --text-titulo-lg: 4rem;
+
+  --shadow-dura: 4px 4px 0 var(--color-plancha);
+  --shadow-dura-sm: 3px 3px 0 var(--color-plancha);
+  --shadow-dura-oscura: 4px 4px 0 var(--color-ketchup-oscuro);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-papel);
+    color: var(--color-plancha);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-plancha);
+    outline-offset: 3px;
+  }
+
+  .sobre-rojo :focus-visible {
+    outline-color: var(--color-mostaza);
+  }
+}
+
+@layer components {
+  /* Botón con sombra dura que "se hunde" al apretarlo */
+  .boton {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px solid var(--color-plancha);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-dura);
+    transition:
+      transform 80ms ease-out,
+      box-shadow 80ms ease-out,
+      background-color 120ms;
+  }
+  .boton:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--color-plancha);
+  }
+  .boton-primario {
+    background: var(--color-ketchup);
+    color: var(--color-blanco);
+  }
+  .boton-primario:hover {
+    background: var(--color-ketchup-oscuro);
+  }
+  .boton-claro {
+    background: var(--color-blanco);
+    color: var(--color-plancha);
+  }
+  .boton-claro:hover {
+    background: var(--color-papel);
+  }
+
+  .sello {
+    display: inline-block;
+    rotate: -2deg;
+    border: 2px solid var(--color-plancha);
+    border-radius: 0.25rem;
+    background: var(--color-mostaza);
+    color: var(--color-plancha);
+    padding: 0.125rem 0.625rem;
+    font-family: var(--font-slab);
+    font-size: var(--text-xl);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .mantel {
+    height: 16px;
+    background: repeating-conic-gradient(var(--color-ketchup) 0 25%, var(--color-blanco) 0 50%) 0 0 / 16px 16px;
+    border-block: 2px solid var(--color-plancha);
+  }
+}
+
+@keyframes estampar {
+  0% {
+    opacity: 0;
+    transform: scale(1.35) rotate(-3deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.97) rotate(0.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.estampar {
+  animation: estampar 520ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@keyframes saltar {
+  0%,
+  100% {
+    transform: none;
+  }
+  40% {
+    transform: translateY(-6px) scale(1.2);
+  }
+}
+.saltar {
+  animation: saltar 350ms ease-out;
+}
+
+@keyframes subir {
+  from {
+    transform: translateY(100%);
+  }
+}
+@keyframes desde-derecha {
+  from {
+    transform: translateX(100%);
+  }
+}
+.panel-drawer {
+  animation: subir 220ms ease-out;
+}
+@media (min-width: 768px) {
+  .panel-drawer {
+    animation-name: desde-derecha;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

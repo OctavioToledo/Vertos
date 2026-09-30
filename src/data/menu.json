@@ -1,0 +1,20 @@
+{
+  "panchos": [
+    { "id": "nino", "nombre": "Pancho niño", "ingredientes": "Solo aderezos", "precio": 3500, "foto": null },
+    { "id": "comun", "nombre": "Pancho común", "ingredientes": "Queso + aderezos", "precio": 4500, "foto": null },
+    { "id": "lluvia-papas", "nombre": "Pancho con lluvia de papas", "ingredientes": "Queso + papas + aderezos", "precio": 5000, "foto": null },
+    { "id": "criollo", "nombre": "Pancho criollo", "ingredientes": "Criolla + queso + aderezos", "precio": 6000, "foto": null },
+    { "id": "salteado", "nombre": "Pancho salteado", "ingredientes": "Verduras salteadas + queso + aderezos", "precio": 6000, "foto": null },
+    { "id": "fugazza", "nombre": "Pancho fugazza", "ingredientes": "Cebolla caramelizada + queso extra + aderezos", "precio": 6500, "foto": null },
+    { "id": "pizza", "nombre": "Pancho pizza", "ingredientes": "Extra queso + muzzarella + salsa + morrón + aceitunas", "precio": 6500, "foto": null },
+    { "id": "calabresa", "nombre": "Pancho calabresa", "ingredientes": "Queso + salame + cebolla de verdeo + aderezos", "precio": 6500, "foto": null },
+    { "id": "cuatro-quesos", "nombre": "Pancho 4 quesos", "ingredientes": "Muzzarella + parmesano + azul + fontina + aderezos", "precio": 7000, "foto": null },
+    { "id": "cheddar-panceta", "nombre": "Pancho cheddar y panceta", "ingredientes": "Queso + cheddar + panceta + aderezos", "precio": 7000, "foto": null }
+  ],
+  "papas": [
+    { "id": "cono-chico", "nombre": "Cono de papas chico", "ingredientes": "", "precio": 3500, "foto": null },
+    { "id": "bandeja", "nombre": "Bandeja de papas", "ingredientes": "", "precio": 8500, "foto": null }
+  ],
+  "promos": [],
+  "bebidas": []
+}
